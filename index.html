@@ -66,22 +66,6 @@ html,body{background:#fdeef7;overflow-x:hidden}
 .ps{font-size:.95rem!important;font-style:italic;border-top:2px dashed rgba(167,123,255,.4);padding-top:14px}
 .rv{opacity:0;transform:translateY(24px) scale(.98);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.3,1.3)}
 .rv.show{opacity:1;transform:none}
-.choir{margin:6px 0 18px;padding:18px 14px;border-radius:20px;background:linear-gradient(135deg,rgba(167,123,255,.14),rgba(63,200,220,.14));text-align:center;user-select:none;-webkit-user-select:none}
-.choir .ct{font-weight:700;font-size:1.15rem;margin-bottom:2px}
-.choir .cs{font-size:.92rem;color:#6b5a7a;margin-bottom:6px}
-.crow{display:flex;align-items:flex-end;justify-content:center;gap:16px}
-#singer{position:relative;background:none;border:none;cursor:pointer;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;padding:0}
-#singer::after{content:'hold me';position:absolute;top:2px;right:-8px;background:#ff5c9a;color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;animation:pl 1.4s infinite}
-#singer.singing::after{display:none}
-#singer.singing svg{animation:sgw .5s ease-in-out infinite alternate}
-@keyframes sgw{to{transform:scale(1.03) rotate(1deg)}}
-#singer.singing #head{animation:hd .9s ease-in-out infinite alternate}
-@keyframes hd{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
-#glass.tremble{animation:trem .05s infinite alternate}
-@keyframes trem{from{transform:translateX(-1.5px) rotate(-2deg)}to{transform:translateX(1.5px) rotate(2deg)}}
-.meter{height:10px;border-radius:99px;background:rgba(167,123,255,.18);overflow:hidden;margin:10px auto 0;max-width:280px}
-.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7cf0a0,#ffd166,#ff5c9a);border-radius:99px}
-#plabel{font-weight:700;font-size:.95rem;margin-top:8px;color:#7a4fd6;min-height:1.4em}
 .cakebox{position:relative;display:inline-block;margin-top:18px}
 .candle{position:absolute;left:50%;top:-22px;width:8px;height:30px;margin-left:-4px;border-radius:3px;background:repeating-linear-gradient(45deg,#ff7eb6 0 4px,#fff 4px 8px);pointer-events:none}
 .flame{position:absolute;left:50%;top:-22px;width:14px;height:22px;margin-left:-7px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff 0 18%,#ffd166 35%,#ff8c42 68%,transparent 72%);box-shadow:0 0 18px 6px rgba(255,200,100,.5);transform-origin:50% 100%;animation:fl .15s ease-in-out infinite alternate;transition:transform .3s}
@@ -107,7 +91,7 @@ html,body{background:#fdeef7;overflow-x:hidden}
 <div id="foam"></div>
 <canvas id="cf"></canvas>
 <div id="tap">tap anywhere ✨</div>
-<button id="mus" aria-label="Toggle music">♪ choir: on</button>
+<button id="mus" aria-label="Toggle music">♪ music: on</button>
 <div class="wrap">
 <div class="sec" id="intro">
 <p style="font-size:1.1rem;letter-spacing:.25em;color:#6b5a7a">psst…</p>
@@ -127,16 +111,6 @@ html,body{background:#fdeef7;overflow-x:hidden}
 <p class="rv">While writing this, I realized we've never actually celebrated your birthday here together. We've got to change that next time.</p>
 <p class="sign rv">Love you loads!<br>Shambo Shiva Shambo! 📿<span class="sig">— Adhi Chettan</span></p>
 <p class="ps rv">P.S. Homecoming queen is cool and all, but don't forget who the real royalty in this family is. 😛</p>
-<div class="choir rv">
-<div class="ct">🎤 Choir practice</div>
-<div class="cs">Press and hold the singer. The longer you hold, the higher she goes.</div>
-<div class="crow">
-<button id="singer" aria-label="Press and hold to sing"><svg viewBox="0 0 120 150" width="140" height="175"><defs><linearGradient id="robe" x1="0" x2="1"><stop offset="0" stop-color="#5b2fd6"/><stop offset=".5" stop-color="#8a5cff"/><stop offset="1" stop-color="#5b2fd6"/></linearGradient></defs><path d="M26 150 L38 88 Q60 78 82 88 L94 150 Z" fill="url(#robe)"/><path d="M49 87 L53 150 L58 150 L56 90Z" fill="#ffd166"/><path d="M71 87 L67 150 L62 150 L64 90Z" fill="#ffd166"/><path d="M44 87 Q60 99 76 87 Q60 93 44 87Z" fill="#fff"/><rect x="55" y="66" width="10" height="20" rx="3" fill="#b9784c"/><g id="head" style="transform-origin:60px 70px"><circle cx="60" cy="24" r="9" fill="#2b1a12"/><circle cx="60" cy="50" r="21" fill="#c98b5e"/><path d="M38 52 Q37 27 60 27 Q83 27 82 52 Q79 36 60 35 Q41 36 38 52Z" fill="#2b1a12"/><circle cx="60" cy="41" r="1.6" fill="#d62839"/><path d="M48 49 q4 3 8 0" stroke="#2b1a12" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M64 49 q4 3 8 0" stroke="#2b1a12" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="47" cy="56" r="3.5" fill="#ff7eb6" opacity=".45"/><circle cx="73" cy="56" r="3.5" fill="#ff7eb6" opacity=".45"/><ellipse id="mouth" cx="60" cy="61" rx="4" ry="2" fill="#6b1f2e"/></g><rect x="42" y="104" width="36" height="22" rx="2" fill="#c0262d"/><rect x="44" y="106" width="15" height="18" fill="#fff"/><rect x="61" y="106" width="15" height="18" fill="#fff"/><path d="M47 111 h9 M47 115 h9 M64 111 h9 M64 115 h9" stroke="#c9bde6" stroke-width="1"/><circle cx="43" cy="118" r="5" fill="#c98b5e"/><circle cx="77" cy="118" r="5" fill="#c98b5e"/></svg></button>
-<div id="glass"><svg viewBox="0 0 40 80" width="46" height="92"><path d="M6 4 L34 4 C34 26 28 36 20 38 C12 36 6 26 6 4Z" fill="rgba(210,238,255,.6)" stroke="#8fbde3" stroke-width="1.5"/><path d="M8 16 L32 16 C31 28 26 34 20 35 C14 34 9 28 8 16Z" fill="#ff5c9a" opacity=".7"/><rect x="19" y="38" width="2" height="34" fill="#8fbde3"/><ellipse cx="20" cy="74" rx="12" ry="3" fill="rgba(210,238,255,.8)" stroke="#8fbde3"/><path d="M10 8 L12 24" stroke="#fff" stroke-width="2" opacity=".8" stroke-linecap="round"/></svg></div>
-</div>
-<div class="meter"><i id="mfill"></i></div>
-<div id="plabel">ready when you are 🎶</div>
-</div>
 <div class="rv" style="text-align:center">
 <div class="cakebox"><div class="candle"></div><div class="flame" id="flame"></div><button id="cake" aria-label="Blow out the candle">🎂</button></div>
 <p class="hint" id="ch">make a wish and tap the cake</p>
@@ -164,7 +138,7 @@ function spawn(){if(bg.querySelectorAll('.floater').length>22)return;const c=Mat
 for(let i=0;i<8;i++)setTimeout(spawn,i*250);setInterval(spawn,650);
 function sparkle(){const s=document.createElement('div');s.className='sp';s.style.left=Math.random()*96+'%';s.style.top=Math.random()*96+'%';const k=.6+Math.random();s.style.width=s.style.height=14*k+'px';s.innerHTML='<svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="#fff"/></svg>';bg.appendChild(s);setTimeout(()=>s.remove(),2200)}
 setInterval(sparkle,350);
-const cv=document.getElementById('cf'),cx=cv.getContext('2d');let P=[],Q=[],run=false,W=0,H=0,mx=null,my=null,HS=600;
+const cv=document.getElementById('cf'),cx=cv.getContext('2d');let P=[],Q=[],run=false,W=0,H=0,mx=null,my=null,HS=600,S2=120;
 function rs(){const d=window.devicePixelRatio||1;W=stage.offsetWidth;H=stage.offsetHeight;cv.width=W*d;cv.height=H*d;cv.style.width=W+'px';cv.style.height=H+'px';cx.setTransform(d,0,0,d,0,0)}
 rs();addEventListener('resize',rs);
 const C=['#ff5c9a','#a77bff','#2fb8cc','#ffd166','#ffffff','#7cf0a0'];
@@ -173,7 +147,7 @@ function ripple(x,y){P.push({k:'r',x,y,rad:4,vr:3.2,life:1,ph:Math.random()*6},{
 let lastT=0;
 stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;const n=performance.now();if(n-lastT>28){lastT=n;for(let i=0;i<2;i++)P.push({k:'b',x:mx+(Math.random()-.5)*10,y:my+(Math.random()-.5)*10,vx:(Math.random()-.5)*1.5,vy:-Math.random()*1.5,s:2+Math.random()*7,ph:Math.random()*6,life:1,dl:.014+Math.random()*.01});go()}});
 stage.addEventListener('pointerleave',()=>{mx=null});
-stage.addEventListener('pointerdown',e=>{if(e.target.closest('#singer'))return;const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;ripple(x,y);burstBubbles(x,y,14)});
+stage.addEventListener('pointerdown',e=>{const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;ripple(x,y);burstBubbles(x,y,14)});
 function confetti(x,y,n){for(let i=0;i<n;i++)P.push({k:'c',x,y,vx:(Math.random()-.5)*14,vy:-Math.random()*13-4,s:Math.random()*7+4,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:C[i%6],life:1,dl:0});go()}
 function firework(x,y){const c=C[Math.floor(Math.random()*C.length)];for(let i=0;i<70;i++){const a=i/70*Math.PI*2,sp=2+Math.random()*4;P.push({k:'s',x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,s:2.6,c,life:1,dl:.012+Math.random()*.01})}go()}
 function go(){if(!run){run=true;requestAnimationFrame(tk)}}
@@ -181,48 +155,19 @@ function tk(now){cx.clearRect(0,0,W,H);for(const p of P){cx.globalAlpha=Math.max
 if(p.k==='c'){p.vy+=.35;p.vx*=.985;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;cx.fillStyle=p.c;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);cx.restore()}
 else if(p.k==='s'){p.vy+=.05;p.vx*=.985;p.x+=p.vx;p.y+=p.vy;p.life-=p.dl;cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,p.s,0,7);cx.fill()}
 else if(p.k==='b'){p.vy-=.025;p.vx+=Math.sin(now*.005+p.ph)*.06;p.vx*=.97;p.vy*=.985;p.x+=p.vx;p.y+=p.vy;p.life-=p.dl;const hu=(p.ph*60+now*.06)%360;cx.fillStyle=`hsla(${hu},90%,85%,.3)`;cx.strokeStyle=`hsla(${hu},75%,65%,.9)`;cx.lineWidth=1.2;cx.beginPath();cx.arc(p.x,p.y,p.s,0,7);cx.fill();cx.stroke();cx.fillStyle='#fff';cx.beginPath();cx.arc(p.x-p.s*.35,p.y-p.s*.35,p.s*.25,0,7);cx.fill()}
-else if(p.k==='r'){p.rad+=p.vr;p.vr*=.97;p.life-=.025;cx.strokeStyle=`hsla(${(p.ph*60+now*.06)%360},80%,65%,1)`;cx.lineWidth=2.5;cx.beginPath();cx.arc(p.x,p.y,p.rad,0,7);cx.stroke()}
-else if(p.k==='sh'){p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.life-=p.dl;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle='rgba(200,235,255,.9)';cx.strokeStyle='#fff';cx.beginPath();cx.moveTo(0,-p.s);cx.lineTo(p.s*.7,p.s*.6);cx.lineTo(-p.s*.6,p.s*.4);cx.closePath();cx.fill();cx.stroke();cx.restore()}
-else if(p.k==='n'){p.x+=p.vx+Math.sin(now*.008+p.y*.05)*.6;p.y+=p.vy;p.life-=p.dl;cx.fillStyle=p.c;cx.font=`700 ${p.s}px Quicksand`;cx.fillText(p.ch,p.x,p.y)}}
+else if(p.k==='r'){p.rad+=p.vr;p.vr*=.97;p.life-=.025;cx.strokeStyle=`hsla(${(p.ph*60+now*.06)%360},80%,65%,1)`;cx.lineWidth=2.5;cx.beginPath();cx.arc(p.x,p.y,p.rad,0,7);cx.stroke()}}
 for(const q of Q){if(!q.st){q.vx+=(q.tx-q.x)*.05;q.vy+=(q.ty-q.y)*.05;q.vx*=.84;q.vy*=.84;if(mx!==null){const dx=q.x-mx,dy=q.y-my,d2=dx*dx+dy*dy;if(d2<5000){const d=Math.sqrt(d2)||1,f=(5000-d2)/5000*5;q.vx+=dx/d*f;q.vy+=dy/d*f}}}else{q.vy+=.12;q.vx*=.99;q.life-=.014}q.x+=q.vx;q.y+=q.vy;const r=q.r*(1+.4*Math.sin(now*.006+q.ph));cx.globalAlpha=Math.max(q.life,0);cx.fillStyle=q.c;cx.beginPath();cx.arc(q.x,q.y,r,0,7);cx.fill();if(q.ph>5.4){cx.fillStyle='#fff';cx.beginPath();cx.arc(q.x-.6,q.y-.6,r*.45,0,7);cx.fill()}}
 cx.globalAlpha=1;P=P.filter(p=>p.life>0&&p.y<H+30&&p.y>-60);Q=Q.filter(q=>q.life>0&&q.y<H+30);if(P.length||Q.length)requestAnimationFrame(tk);else{run=false;cx.clearRect(0,0,W,H)}}
-let S2=120;
 function sampleText(){HS=stage.offsetHeight;const oc=document.createElement('canvas');oc.width=W;oc.height=HS;const o=oc.getContext('2d');o.fillStyle='#000';o.textAlign='center';o.textBaseline='middle';const s1=Math.min(W*.1,54);S2=Math.min(W*.19,122);o.font=`700 ${s1}px Quicksand`;o.fillText('Happy 18th,',W/2,HS/2-S2*.5);o.font=`${S2}px Pacifico`;o.fillText('Shampoo!',W/2,HS/2+S2*.5);const d=o.getImageData(0,0,W,HS).data;let step=W<500?4:5,pts;for(;;){pts=[];for(let y=0;y<HS;y+=step)for(let x=0;x<W;x+=step)if(d[(y*W+x)*4+3]>128)pts.push([x,y]);if(pts.length<1900)break;step++}return pts}
 function burst(el){const p=rel(el),X=p.x,Y=p.top+p.h*.2;for(let i=0;i<30;i++){const b=document.createElement('div'),s=10+Math.random()*30,a=Math.random()*Math.PI*2,d=80+Math.random()*190;b.className='burst';Object.assign(b.style,{width:s+'px',height:s+'px',left:(X-s/2)+'px',top:(Y-s/2)+'px'});b.style.setProperty('--dx',Math.cos(a)*d+'px');b.style.setProperty('--dy',(Math.sin(a)*d-80)+'px');stage.appendChild(b);setTimeout(()=>b.remove(),1000)}}
-let A,master,musicOn=true,bus,rev,softWave;
+let A,master,musicOn=true,bus;
 const NF={G5:784,A5:880,B5:987.8,C6:1046.5,D6:1174.7,E6:1318.5,F6:1396.9,G6:1568};
 const SONG=[['G5',.75],['G5',.25],['A5',1],['G5',1],['C6',1],['B5',2],['G5',.75],['G5',.25],['A5',1],['G5',1],['D6',1],['C6',2],['G5',.75],['G5',.25],['G6',1],['E6',1],['C6',1],['B5',1],['A5',2],['F6',.75],['F6',.25],['E6',1],['C6',1],['D6',1],['C6',3]];
-function initAudio(){A=new(window.AudioContext||window.webkitAudioContext)();master=A.createGain();master.gain.value=.14;bus=A.createBiquadFilter();bus.type='lowpass';bus.frequency.value=2600;bus.connect(master);master.connect(A.destination);rev=A.createConvolver();const len=A.sampleRate*3,buf=A.createBuffer(2,len,A.sampleRate);for(let ch=0;ch<2;ch++){const d=buf.getChannelData(ch);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.2)}rev.buffer=buf;const wet=A.createGain();wet.gain.value=.55;master.connect(rev);rev.connect(wet);wet.connect(A.destination);softWave=A.createPeriodicWave(new Float32Array([0,1,.22,.07,.025,.01]),new Float32Array(6))}
+function initAudio(){A=new(window.AudioContext||window.webkitAudioContext)();master=A.createGain();master.gain.value=.14;bus=A.createBiquadFilter();bus.type='lowpass';bus.frequency.value=2600;bus.connect(master);master.connect(A.destination);const rev=A.createConvolver(),len=A.sampleRate*3,buf=A.createBuffer(2,len,A.sampleRate);for(let ch=0;ch<2;ch++){const d=buf.getChannelData(ch);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.2)}rev.buffer=buf;const wet=A.createGain();wet.gain.value=.55;master.connect(rev);rev.connect(wet);wet.connect(A.destination)}
 function note(f,t,d){const g=A.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.22,t+.08);g.gain.linearRampToValueAtTime(.16,t+d*.7);g.gain.linearRampToValueAtTime(0,t+d+.25);g.connect(bus);const l=A.createOscillator(),lg=A.createGain();l.frequency.value=5.6;lg.gain.value=f*.008;l.connect(lg);[-9,0,9].forEach(c=>{const o=A.createOscillator();o.type=c?'sine':'triangle';o.frequency.value=f;o.detune.value=c;lg.connect(o.frequency);o.connect(g);o.start(t);o.stop(t+d+.35)});l.start(t);l.stop(t+d+.35)}
 function playSong(){const beat=.42;let t=A.currentTime+.15;for(const[n,b]of SONG){note(NF[n],t,b*beat*.95);t+=b*beat}setTimeout(playSong,(t-A.currentTime+2)*1000)}
 const mus=document.getElementById('mus');
-mus.addEventListener('click',e=>{e.stopPropagation();musicOn=!musicOn;master.gain.setTargetAtTime(musicOn?.14:0,A.currentTime,.1);mus.textContent=musicOn?'♪ choir: on':'♪ choir: off'});
-const singer=document.getElementById('singer'),mouth=document.getElementById('mouth'),glass=document.getElementById('glass'),mfill=document.getElementById('mfill'),plabel=document.getElementById('plabel');
-const NN=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
-let sing=null,shattered=false;
-function startSing(e){e.preventDefault();try{if(!A)initAudio();A.resume()}catch(_){return}if(sing)return;try{singer.setPointerCapture(e.pointerId)}catch(_){}
-if(shattered){glass.style.visibility='visible';shattered=false}
-const now=A.currentTime,f0=523.25;
-const lp=A.createBiquadFilter();lp.type='lowpass';lp.frequency.value=f0*3;lp.Q.value=.5;
-const out=A.createGain();out.gain.setValueAtTime(0,now);out.gain.linearRampToValueAtTime(.32,now+.35);
-lp.connect(out);out.connect(A.destination);const sendR=A.createGain();sendR.gain.value=.9;out.connect(sendR);sendR.connect(rev);
-const l=A.createOscillator(),lg=A.createGain();l.frequency.value=5.2;lg.gain.setValueAtTime(0,now);lg.gain.linearRampToValueAtTime(f0*.004,now+.6);l.connect(lg);
-const vs=[-6,6].map(dt=>{const o=A.createOscillator();o.setPeriodicWave(softWave);o.frequency.value=f0;o.detune.value=dt;lg.connect(o.frequency);const g=A.createGain();g.gain.value=.5;o.connect(g);g.connect(lp);o.start();return o});
-const nb=A.createBuffer(1,A.sampleRate,A.sampleRate),nd=nb.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;const ns=A.createBufferSource();ns.buffer=nb;ns.loop=true;const nf=A.createBiquadFilter();nf.type='bandpass';nf.frequency.value=3500;nf.Q.value=.6;const ng=A.createGain();ng.gain.value=.012;ns.connect(nf);nf.connect(ng);ng.connect(out);ns.start();
-l.start();master.gain.setTargetAtTime(.02,now,.15);
-sing={vs,l,lg,lp,out,ns,t0:performance.now(),ln:0};singer.classList.add('singing');requestAnimationFrame(singLoop)}
-function singLoop(){if(!sing)return;const t=(performance.now()-sing.t0)/1000,k=Math.min(t/5,1),f=523.25*Math.pow(2,2*k),now=A.currentTime;
-sing.vs.forEach(o=>o.frequency.setTargetAtTime(f,now,.04));if(t>.6)sing.lg.gain.setTargetAtTime(f*(.004+.003*k),now,.1);sing.lp.frequency.setTargetAtTime(f*2.2+300,now,.05);sing.out.gain.setTargetAtTime(.32*(1-.4*k),now,.1);
-mouth.setAttribute('ry',2+7*k);mouth.setAttribute('rx',3.5+2*k);mfill.style.width=(k*100)+'%';
-const n=Math.round(12*Math.log2(f/440))+69,nm=NN[n%12]+(Math.floor(n/12)-1);
-if(!shattered)plabel.textContent=(k<.25?'warming up':k<.5?'soprano mode':k<.75?'dogs nearby are concerned 🐕':'the glass is nervous 😰')+' · '+nm;
-glass.classList.toggle('tremble',k>.7&&!shattered);
-const pn=performance.now();if(pn-sing.ln>Math.max(90,240-160*k)){sing.ln=pn;const p=rel(singer);P.push({k:'n',x:p.x+(Math.random()-.5)*20,y:p.top+p.h*.35,vx:(Math.random()-.5)*3,vy:-1.6-Math.random()*2-2.5*k,life:1,dl:.011,s:14+k*14,ch:Math.random()<.5?'♪':'♫',c:WC[Math.floor(Math.random()*4)]});go()}
-if(t>5.6&&!shattered)shatter();
-requestAnimationFrame(singLoop)}
-function stopSing(){if(!sing)return;const s=sing;sing=null;const now=A.currentTime;s.out.gain.cancelScheduledValues(now);s.out.gain.setValueAtTime(s.out.gain.value,now);s.out.gain.linearRampToValueAtTime(0,now+.4);s.vs.forEach(o=>o.stop(now+.5));s.l.stop(now+.5);s.ns.stop(now+.5);if(musicOn)master.gain.setTargetAtTime(.14,now,.5);singer.classList.remove('singing');mouth.setAttribute('ry',2);mouth.setAttribute('rx',4);mfill.style.width='0';glass.classList.remove('tremble');if(!shattered)plabel.textContent='hold longer to hit the high notes 🎤'}
-function shatter(){shattered=true;const p=rel(glass);glass.classList.remove('tremble');glass.style.visibility='hidden';for(let i=0;i<26;i++)P.push({k:'sh',x:p.x+(Math.random()-.5)*20,y:p.y-15+(Math.random()-.5)*30,vx:(Math.random()-.5)*10,vy:-Math.random()*8-2,s:3+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.4,life:1,dl:.012});confetti(p.x,p.y,60);go();stage.classList.add('shake');setTimeout(()=>stage.classList.remove('shake'),450);plabel.textContent='GLASS SHATTERED 🏆 certified choir legend';try{const len=A.sampleRate*.5,b=A.createBuffer(1,len,A.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,4);const src=A.createBufferSource();src.buffer=b;const hp=A.createBiquadFilter();hp.type='highpass';hp.frequency.value=2500;const g=A.createGain();g.gain.value=.5;src.connect(hp);hp.connect(g);g.connect(A.destination);src.start()}catch(_){}}
-singer.addEventListener('pointerdown',startSing);['pointerup','pointercancel','lostpointercapture'].forEach(ev=>singer.addEventListener(ev,stopSing));singer.addEventListener('contextmenu',e=>e.preventDefault());
+mus.addEventListener('click',e=>{e.stopPropagation();musicOn=!musicOn;master.gain.setTargetAtTime(musicOn?.14:0,A.currentTime,.1);mus.textContent=musicOn?'♪ music: on':'♪ music: off'});
 const bottle=document.getElementById('bottle'),intro=document.getElementById('intro'),letter=document.getElementById('letter'),tapEl=document.getElementById('tap');
 let done=false;
 function showLetter(){letter.style.display='block';if(A)mus.style.display='block';rs();confetti(W/2,160,160);document.getElementById('card').classList.add('flip');letter.querySelectorAll('.rv').forEach((el,i)=>setTimeout(()=>el.classList.add('show'),700+i*400))}
